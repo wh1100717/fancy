@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    - var baseurl = debug ? "" : "Some Specific Url" + version
+    head
+        title Fancy
+        meta(name="viewport", content="width=device-width")
+        meta(charset="utf-8")
+        meta(http-equiv="content-type", content="text/html;charset=UTF-8")
+        meta(name="description", content="Just Fancy It!")
+        meta(name="author", content="Eric Wang")
+        meta(name="email", conen="me@emptystack.net")
+        link(rel="stylesheet", href="#{baseurl}/css/fancy.css")
+    body
+        .test
+            block content
+

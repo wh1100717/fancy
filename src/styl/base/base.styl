@@ -1,0 +1,43 @@
+// Mixin
+require("../mixin/tab-focus")
+// Mixin End
+
+*
+  box-sizing border-box
+  &:before
+  &:after
+    box-sizing border-box
+    
+html
+  -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+
+body
+  font-family $font-family-base
+  font-size $font-size-base
+  line-height $line-height-base
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea
+  font-family inherit
+  font-size inherit
+  line-height inherit
+
+// Links
+a
+  text-decoration none
+  &:hover,
+  &:focus
+    text-decoration $link-hover-decoration
+  &:focus
+    tab-focus()
+
+// Horizontal rules
+
+hr
+  margin-top $line-height-computed
+  margin-bottom $line-height-computed
+  border 0
+  border-top 1px solid $hr-border
