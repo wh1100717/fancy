@@ -1,4 +1,100 @@
 extends layouts/common.jade
 
 block content
-    h1 123 test
+    .row.panel.panel
+        .col-md-4
+            h3 Button Tags
+            p.item: a.btn.btn-default Link
+            p.item: button.btn.btn-default Button
+            p.item: input.btn.btn-default(type="button", value="Input")
+            p.item: input.btn.btn-default(type="submit", value="Submit")
+        .col-md-4
+            h3 Options
+            p.item: button.btn.btn-default Default
+            p.item: button.btn.btn-primary Primary
+            p.item: button.btn.btn-success Success
+            p.item: button.btn.btn-info Info
+            p.item: button.btn.btn-warning Warning
+            p.item: button.btn.btn-danger Danger
+            p.item: button.btn.btn-link Link
+        .col-md-4
+            h3 Sizes & State
+            p.item: button.btn.btn-primary.btn-lg Large Button
+            p.item: button.btn.btn-primary Default Button
+            p.item: button.btn.btn-primary.btn-sm Small Button
+            p.item: button.btn.btn-primary.btn-xl Extra Small Button
+            p.item: button.btn.btn-primary.btn-block Block Button
+            p.item: button.btn.btn-primary.active Active Button
+            p.item: button.btn.btn-primary(disabled="disabled") Disabled Button
+    .row.panel
+        .col-md-12
+            h3 Form Group
+            form
+                .form-group
+                    label(for="exampleInputEmail1") Email address
+                    input#exampleInputEmail1.form-control(type="email", placeholder="Email")
+                .form-group
+                    label(for="exampleInputPassword1") Password
+                    input#exampleInputPassword1.form-control(type="password", placeholder="Password")
+                .form-group
+                    label(for="exmapleInputFile") File Input
+                    input#exampleInputFile(type="file")
+                    p.help-block Example block-level help text here.
+                .checkbox
+                    label
+                        input(type="checkbox")
+                        != 'Check me out'
+    .row.panel
+        .col-md-12
+            h3 Inline Form
+            form.form-inline
+                .form-group
+                    label(for="exampleInputName2") Name
+                    input#exampleInputName2.form-control(type="text", placeholder="Eric Wang")
+                .form-group
+                    label(for="exampleInputEmail2") Email
+                    input#exampleInputEmail2.form-control(type="email", placeholder="me@emptystack.net")
+                .checkbox
+                    label
+                        input(type="checkbox")
+                        != "Remember me"
+                button.btn.btn-default(type="submit") Sign in
+    .row.panel
+        .col-md-12
+            h3 Horizontal Form
+            form.form-horizontal
+                .form-group
+                    label.col-md-2.control-label Email
+                    .col-md-10
+                        input.form-control(type="email", placeholder="Email")
+                .form-group
+                    label.col-md-2.control-label Password
+                    .col-md-10
+                        input.form-control(type="password", placeholder="Password")
+                .form-group
+                    .col-md-offset-2.col-md-10
+                        .checkbox
+                            label
+                                input(type="checkbox")
+                                != "Remember me"
+                .form-group
+                    .col-md-offset-2.col-md-10
+                        button.btn.btn-default Sign In
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

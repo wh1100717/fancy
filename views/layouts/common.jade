@@ -10,7 +10,10 @@ html(lang="en")
         meta(name="author", content="Eric Wang")
         meta(name="email", conen="me@emptystack.net")
         link(rel="stylesheet", href="#{baseurl}/css/fancy.css")
+        link(rel="stylesheet", href="#{baseurl}/css/demo.css")
     body
-        .test
-            block content
-
+        .content
+            .content-header: .container: .row: .col-md-6.col-md-push-2: h1.heading Fancy
+            .content-inner: .container
+                block content
+        footer.footer: .container: p Fancy

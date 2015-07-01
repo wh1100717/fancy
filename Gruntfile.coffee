@@ -18,15 +18,15 @@ module.exports = (grunt) ->
             build: ['build']
             tmp: ['.tmp']
         stylus:
+            options:
+                compress: false
+                paths: ['stylus']
+            #     paths: ['src/mixins']
+            #     urlfunc: 'embedurl'
             fancy:
-                options:
-                    compress: false
-                    paths: ['stylus']
-                #     paths: ['src/mixins']
-                #     urlfunc: 'embedurl'
-                files: {
+                files:
                     '.tmp/build/css/fancy.css': 'src/styl/index.styl'
-                }
+                    '.tmp/build/css/demo.css': 'src/styl/demo.styl'
         jade:
             serve:
                 options:
@@ -95,7 +95,7 @@ module.exports = (grunt) ->
                 options:
                     livereload: '<%= connect.options.livereload %>'
                 files: [
-                    '{,*/}*.html'
+                    '.tmp/build/{,*/}*.html'
                     '.tmp/build/**/css/{,*/}*.css'
                     '.tmp/build/**/js/{,*/}*.js'
                     '.tmp/build/**/module/**'
