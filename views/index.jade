@@ -1,7 +1,42 @@
 extends layouts/common.jade
 
 block content
-    .row.panel.panel
+    .row.panel
+        .col-md-12
+            h1 h1. heading
+                small  Secondary text
+            h2 h2. heading
+                small  Secondary text
+            h3 h3. heading
+                small  Secondary text
+            h4 h4. heading
+                small  Secondary text
+            h5 h5. heading
+                small  Secondary text
+            h6 h6. heading
+                small  Secondary text
+            p 
+                != "You can use the mark tag to <mark>highlight</mark> text."
+            p: del This line of text is meant to be treated as deleted text.
+            p: s This line of text is meant to be treated as no longer accurate.
+            p: ins This line of text is meant to be treated as an addition to the document.
+            p: u This line of text will render as underlined
+            p: small This line of text is meant to be treated as fine print.
+            p: strong rendered as bold text
+            p: em rendered as italicized text
+    .row.panel
+        .col-md-12
+            p.text-left Left aligned text.
+            p.text-center Center aligned text.
+            p.text-right Right aligned text.
+            p.text-justify Justified text.
+            p.text-nowrap No wrap text.
+            p.text-lowercase Lowercased text.
+            p.text-uppercase Uppercased text.
+            p.text-capitalize Capitalized text.
+            p: abbr(title="attribute") attr
+            p: abbr.initialism(title="HyperText Markup Language") HTML
+    .row.panel
         .col-md-4
             h3 Button Tags
             p.item: a.btn.btn-default Link
