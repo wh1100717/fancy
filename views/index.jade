@@ -15,27 +15,144 @@ block content
                 small  Secondary text
             h6 h6. heading
                 small  Secondary text
+    .row.panel
+        .col-md-12
+            h3 Marked text
             p 
                 != "You can use the mark tag to <mark>highlight</mark> text."
+        .col-md-12
+            h3 Deleted text
             p: del This line of text is meant to be treated as deleted text.
+        .col-md-12
+            h3 Stikethrough text
             p: s This line of text is meant to be treated as no longer accurate.
+        .col-md-12
+            h3 Inserted text
             p: ins This line of text is meant to be treated as an addition to the document.
+        .col-md-12
+            h3 Underlined text
             p: u This line of text will render as underlined
+        .col-md-12
+            h3 Small text
             p: small This line of text is meant to be treated as fine print.
+        .col-md-12
+            h3 Bold(Strong) text
             p: strong rendered as bold text
+        .col-md-12
+            h3 Italics text
             p: em rendered as italicized text
     .row.panel
         .col-md-12
+            h3 Alignment classes
             p.text-left Left aligned text.
             p.text-center Center aligned text.
             p.text-right Right aligned text.
             p.text-justify Justified text.
             p.text-nowrap No wrap text.
+        .col-md-12
+            h3 Transformation classes
             p.text-lowercase Lowercased text.
             p.text-uppercase Uppercased text.
             p.text-capitalize Capitalized text.
+        .col-md-12
+            h3 Abbreviations
             p: abbr(title="attribute") attr
             p: abbr.initialism(title="HyperText Markup Language") HTML
+    .row.panel
+        .col-md-12
+            h3 Addresses
+            address
+                != "<strong>Twitter, Inc.</strong><br> 795 Folsom Ave, Suite 600<br> San Francisco, CA 94107<br> <abbr title='Phone'>P:</abbr> (123) 456-7890"
+            address
+                != "<strong>Full Name</strong><br><a href='mailto:#'>first.last@example.com</a>"
+        .col-md-12
+            h3 Blockquotes
+            blockquote
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            blockquote
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                footer
+                    Someone famous in
+                        cite(title="Source Title") Source Title
+            blockquote.blockquote-reverse
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                footer
+                    Someone famous in
+                        cite(title="Source Title") Source Title
+    .row.panel
+        .col-md-4
+            h3 List Unordered
+            ul
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li Nulla volutpat aliquam velit
+                    ul
+                        li Phasellus iaculis neque
+                        li Purus sodales ultricies
+                        li Vestibulum laoreet porttitor sem
+                        li Ac tristique libero volutpat at
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+        .col-md-4
+            h3 List Ordered
+            ol
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li Nulla volutpat aliquam velit
+                    ol
+                        li Phasellus iaculis neque
+                        li Purus sodales ultricies
+                        li Vestibulum laoreet porttitor sem
+                        li Ac tristique libero volutpat at
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+        .col-md-4
+            h3 List Unstyled
+            ul.list-unstyled
+                li Lorem ipsum dolor sit amet
+                li Consectetur adipiscing elit
+                li Integer molestie lorem at massa
+                li Facilisis in pretium nisl aliquet
+                li Nulla volutpat aliquam velit
+                    ul
+                        li Phasellus iaculis neque
+                        li Purus sodales ultricies
+                        li Vestibulum laoreet porttitor sem
+                        li Ac tristique libero volutpat at
+                li Faucibus porta lacus fringilla vel
+                li Aenean sit amet erat nunc
+                li Eget porttitor lorem
+    .row.panel
+        .col-md-12
+            h3 List Inline
+            ul.list-inline
+                li Lorem ipsum 
+                li Phasellus iaculis 
+                li Nulla volutpat
+        .col-md-12
+            h3 Description
+            dl
+                dt Description lists
+                dd A description list is perfect for defining terms.
+            dl
+                dt Euismod
+                dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                dd Donec id elit non mi porta gravida at eget metus.
+        .col-md-12
+            h3 Horizontal Description
+            dl.dl-horizontal
+                dt Description lists
+                dd A description list is perfect for defining terms.
+            dl.dl-horizontal
+                dt Euismod
+                dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                dd Donec id elit non mi porta gravida at eget metus.                        
     .row.panel
         .col-md-4
             h3 Button Tags
@@ -198,8 +315,137 @@ block content
                     option 3
                     option 4
                     option 5
-
-
+    .row.panel
+        .col-md-12
+            h3 Basic Table
+            table.table
+                caption Optional table caption.
+                thead
+                    tr
+                        th #
+                        th First Name
+                        th Last Name
+                        th Username
+                tbody
+                    tr
+                        th(scope="row") 1
+                        td Mark
+                        td Otto
+                        td @mdo
+                    tr
+                        th(scope="row") 2
+                        td Jacob
+                        td Thornton
+                        td @fat
+                    tr
+                        th(scope="row") 3
+                        td Larry
+                        td the Bird
+                        td @twitter
+        .col-md-12
+            h3 Striped Rows
+            table.table.table-striped
+                caption Optional table caption.
+                thead
+                    tr
+                        th #
+                        th First Name
+                        th Last Name
+                        th Username
+                tbody
+                    tr
+                        th(scope="row") 1
+                        td Mark
+                        td Otto
+                        td @mdo
+                    tr
+                        th(scope="row") 2
+                        td Jacob
+                        td Thornton
+                        td @fat
+                    tr
+                        th(scope="row") 3
+                        td Larry
+                        td the Bird
+                        td @twitter
+        .col-md-12
+            h3 Bordered Table
+            table.table.table-bordered
+                caption Optional table caption.
+                thead
+                    tr
+                        th #
+                        th First Name
+                        th Last Name
+                        th Username
+                tbody
+                    tr
+                        th(scope="row") 1
+                        td Mark
+                        td Otto
+                        td @mdo
+                    tr
+                        th(scope="row") 2
+                        td Jacob
+                        td Thornton
+                        td @fat
+                    tr
+                        th(scope="row") 3
+                        td Larry
+                        td the Bird
+                        td @twitter
+        .col-md-12
+            h3 Hover Rows
+            table.table.table-hover
+                caption Optional table caption.
+                thead
+                    tr
+                        th #
+                        th First Name
+                        th Last Name
+                        th Username
+                tbody
+                    tr
+                        th(scope="row") 1
+                        td Mark
+                        td Otto
+                        td @mdo
+                    tr
+                        th(scope="row") 2
+                        td Jacob
+                        td Thornton
+                        td @fat
+                    tr
+                        th(scope="row") 3
+                        td Larry
+                        td the Bird
+                        td @twitter
+        .col-md-12
+            h3 Condensed Table
+            table.table.table-condensed
+                caption Optional table caption.
+                thead
+                    tr
+                        th #
+                        th First Name
+                        th Last Name
+                        th Username
+                tbody
+                    tr
+                        th(scope="row") 1
+                        td Mark
+                        td Otto
+                        td @mdo
+                    tr
+                        th(scope="row") 2
+                        td Jacob
+                        td Thornton
+                        td @fat
+                    tr
+                        th(scope="row") 3
+                        td Larry
+                        td the Bird
+                        td @twitter
 
 
 
