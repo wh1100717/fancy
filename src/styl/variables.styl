@@ -45,7 +45,8 @@ $gray ?=                            lighten($gray-base, 33.5)
 $gray-light ?=                      lighten($gray-base, 46.7)
 $gray-lighter ?=                    lighten($gray-base, 93.5)
 
-$red ?=                             #F44336                     // 500
+$white ?=                           #FFF
+$red ?=                             #F44336
 $pink ?=                            #E91E63
 $purple ?=                          #9C27B0
 $indigo ?=                          #3F51B5
@@ -60,6 +61,7 @@ $orange ?=                          #FF9800
 $brown ?=                           #795548
 $grey ?=                            #9E9E9E
 
+$base-color ?=                      #009688
 
 $brand-primary ?=                   $blue
 $brand-success ?=                   $green
@@ -71,12 +73,12 @@ $brand-danger ?=                    $red
 $text-color ?=                      $gray-dark
 
 //** Global textual link color.
-$link-color ?=                      $brand-primary
+$link-color ?=                      $base-color
 //** Link hover color set via `darken()` function.
-$link-hover-color ?=                darken($link-color, 15)
+$link-hover-color ?=                lighten($link-color, 10)
 
 //** Global color for active items (e.g., navs or dropdowns).
-$component-active-color ?=          #fff
+$component-active-color ?=          $white
 
 //** Default background color used for all tables.
 $table-bg ?=                        transparent
@@ -89,34 +91,34 @@ $table-bg-active ?=                 $table-bg-hover
 //** Border color for table and cell borders.
 $table-border-color ?=              #ddd
 
-$btn-default-color ?=               #333
-$btn-default-bg ?=                  #fff
-$btn-default-border ?=              #ccc
+$btn-default-color ?=               $gray-dark
+$btn-default-bg ?=                  $white
+$btn-default-border ?=              $gray-lighter
 
-$btn-primary-color ?=               #fff
+$btn-primary-color ?=               $white
 $btn-primary-bg ?=                  $brand-primary
 $btn-primary-border ?=              darken($btn-primary-bg, 5)
 
-$btn-success-color ?=               #fff
+$btn-success-color ?=               $white
 $btn-success-bg ?=                  $brand-success
 $btn-success-border ?=              darken($btn-success-bg, 5)
 
-$btn-info-color ?=                  #fff
+$btn-info-color ?=                  $white
 $btn-info-bg ?=                     $brand-info
 $btn-info-border ?=                 darken($btn-info-bg, 5)
 
-$btn-warning-color ?=               #fff
+$btn-warning-color ?=               $white
 $btn-warning-bg ?=                  $brand-warning
 $btn-warning-border ?=              darken($btn-warning-bg, 5)
 
-$btn-danger-color ?=                #fff
+$btn-danger-color ?=                $white
 $btn-danger-bg ?=                   $brand-danger
 $btn-danger-border ?=               darken($btn-danger-bg, 5)
 
 $btn-link-disabled-color ?=         $gray-light
 
 //** `<input>` background color
-$input-bg ?=                        #fff
+$input-bg ?=                        $white
 //** `<input disabled>` background color
 $input-bg-disabled ?=               $gray-lighter
 
@@ -147,7 +149,7 @@ $hr-border ?=                 $gray-lighter
 $code-color ?=                #c7254e
 $code-bg ?=                   #f9f2f4
 
-$kbd-color ?=                 #fff
+$kbd-color ?=                 $white
 $kbd-bg ?=                    #333
 
 $pre-bg ?=                    #f5f5f5
@@ -271,7 +273,7 @@ $zindex-modal ?=                1050
 // ==Background
 //
 //** Background color for `<body>`.
-$body-bg ?=                     #fff
+$body-bg ?=                     $white
 //** Global background color for active items (e.g., navs or dropdowns).
 $component-active-bg ?=         $brand-primary
 //
