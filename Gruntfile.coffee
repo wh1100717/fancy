@@ -27,6 +27,25 @@ module.exports = (grunt) ->
                 files:
                     '.tmp/build/css/fancy.css': 'src/styl/index.styl'
                     '.tmp/build/css/demo.css': 'src/styl/demo.styl'
+        postcss:
+            fancy:
+                options:
+                    map: false
+                    processors: [
+                        require('pixrem')()
+                        # require('autoprefixer')({browsers: '> 1%, last 2 versions, Firefox ESR, Opera 12.1'})
+                        require('autoprefixer')({browsers: 'last 2 versions'})
+                    ]
+                src: ['.tmp/build/css/*.css']
+            build:
+                options:
+                    map: true
+                    processors: [
+                        require('pixrem')()
+                        require('autoprefixer')({browsers: '> 1%, last 2 versions, Firefox ESR, Opera 12.1'})
+                        require('cssnano')
+                    ]
+                src: ['.tmp/build/css/*.css']
         jade:
             serve:
                 options:
@@ -90,7 +109,7 @@ module.exports = (grunt) ->
                 tasks: ['jade:serve']
             stylus:
                 files: 'src/styl/**/*.styl'
-                tasks: ['stylus']
+                tasks: ['stylus', 'postcss:fancy']
             livereload:
                 options:
                     livereload: '<%= connect.options.livereload %>'
@@ -115,6 +134,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'serve', [
         'clean:tmp'
         'stylus'
+        'postcss:fancy'
         'jade:serve'
         'connect:livereload'
         'watch'
