@@ -1,3 +1,6 @@
+@import 'variables'
+@import 'mixins'
+
 .content
     padding-bottom 80px
     .content-header
@@ -28,6 +31,8 @@
     border 1px solid #e0e0e0
     padding 10px
     margin 10px
+    shadow-z1()
+
 .color-panel
     width 100px
     height 70px
@@ -37,5 +42,10 @@
     margin-bottom -2px
     padding-top 10px
     font-size 12px
+    cursor pointer
+    transition-default()
+    &:hover
+        shadow-z4()
+
 .text-light
     color #ccc
