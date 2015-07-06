@@ -28,7 +28,7 @@ module.exports = (grunt) ->
                     '.tmp/build/css/fancy.css': 'src/styl/index.styl'
                     '.tmp/build/css/demo.css': 'src/styl/demo.styl'
         postcss:
-            fancy:
+            serve:
                 options:
                     map: false
                     processors: [
@@ -39,7 +39,7 @@ module.exports = (grunt) ->
                 src: ['.tmp/build/css/*.css']
             build:
                 options:
-                    map: true
+                    map: false
                     processors: [
                         require('pixrem')()
                         require('autoprefixer')({browsers: '> 1%, last 2 versions, Firefox ESR, Opera 12.1'})
@@ -72,15 +72,15 @@ module.exports = (grunt) ->
                 files: [{
                     expand: true
                     cwd: "views/"
-                    src: ["**/*.jade"]
-                    dest: "dist/"
+                    src: ["*.jade"]
+                    dest: "build/"
                     ext: ".html"
                 }]
         copy:
             build:
                 expand: true
                 cwd: ".tmp/build/"
-                src: ["*"]
+                src: ["*/**"]
                 dest: "build/"
         connect:
             options:
@@ -109,7 +109,7 @@ module.exports = (grunt) ->
                 tasks: ['jade:serve']
             stylus:
                 files: 'src/styl/**/*.styl'
-                tasks: ['stylus', 'postcss:fancy']
+                tasks: ['stylus', 'postcss:serve']
             livereload:
                 options:
                     livereload: '<%= connect.options.livereload %>'
@@ -134,10 +134,17 @@ module.exports = (grunt) ->
     grunt.registerTask 'serve', [
         'clean:tmp'
         'stylus'
-        'postcss:fancy'
+        'postcss:serve'
         'jade:serve'
         'connect:livereload'
         'watch'
+    ]
+    grunt.registerTask 'build', [
+        'clean'
+        'stylus'
+        'postcss:build'
+        'jade:build'
+        'copy'
     ]
     grunt.registerTask 'server', ['serve']
     grunt.registerTask 'default', ['serve']
