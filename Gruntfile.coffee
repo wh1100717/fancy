@@ -17,15 +17,56 @@ module.exports = (grunt) ->
         clean:
             build: ['build']
             tmp: ['.tmp']
+        coffee:
+            compile:
+                options: {
+                    bare: true
+                }
+                expand: true
+                flatten: true
+                cwd: 'src/coffee'
+                src: ['*.coffee']
+                dest: '.tmp/tmp/js/'
+                ext: '.js'
+        concat:
+            options:
+                banner: '<%= banner %>'
+                stripBanners: false
+            dist:
+                src: [
+                    'src/vendor/pace.js'
+                    'src/vendor/require.js'
+                    'src/vendor/jquery.js'
+                    'src/vendor/moment.js'
+                    'src/vendor/waves.js'
+                    '.tmp/tmp/js/init.js'
+                ]
+                dest: '.tmp/build/js/<%= pkg.name %>.js'
+        uglify:
+            options:
+                mangle:
+                    except: ['require']
+                normalizeDirDefines: true
+                skipDirOptimize: false
+                preserveComments: 'some'
+            js:
+                options:
+                    banner: '<%= banner %>'
+                files:[{
+                    expand: true
+                    cwd: '.tmp/build/'
+                    src: ['js/**/*.js']
+                    dest: 'build/'
+                }]
         stylus:
             options:
                 compress: false
                 paths: ['stylus']
             #     paths: ['src/mixins']
             #     urlfunc: 'embedurl'
-            fancy:
+            serve:
                 files:
-                    '.tmp/build/css/fancy.css': 'src/styl/index.styl'
+                    '.tmp/build/css/<%= pkg.name %>.css': 'src/styl/index.styl'
                     '.tmp/build/css/demo.css': 'src/styl/demo.styl'
         postcss:
             serve:
@@ -46,6 +87,15 @@ module.exports = (grunt) ->
                         require('cssnano')
                     ]
                 src: ['.tmp/build/css/*.css']
+        usebanner:
+            dist:
+                options:
+                    position: 'top'
+                    banner: '<%= banner %>'
+                files:
+                    src: [
+                        '.tmp/build/css/*.css'
+                    ]
         jade:
             serve:
                 options:
@@ -104,6 +154,9 @@ module.exports = (grunt) ->
                 options:
                     open: true
         watch:
+            coffee:
+                files: 'src/coffee/**/*.coffee'
+                tasks: ['coffee', 'concat']
             jade:
                 files: 'views/**/*'
                 tasks: ['jade:serve']
@@ -120,31 +173,22 @@ module.exports = (grunt) ->
                     '.tmp/build/**/module/**'
                     '.tmp/build/**/img/**'
                 ]
-        usebanner:
-            dist:
-                options:
-                    position: 'top'
-                    banner: '<%= banner %>'
-                files:
-                    src: [
-                        'build/css/*.css'
-                    ]
     }
+
+    grunt.registerTask 'build', [
+        'clean:*'
+        'coffee', 'concat', 'uglify'                #Build JS
+        'stylus', 'postcss:build','usebanner'       #Build CSS
+        'jade:build'                                #Build HTML
+        'copy'                                      #Copy Files To Build Dir
+    ]
 
     grunt.registerTask 'serve', [
         'clean:tmp'
-        'stylus'
-        'postcss:serve'
+        'coffee', 'concat'
+        'stylus', 'postcss:serve'
         'jade:serve'
-        'connect:livereload'
-        'watch'
-    ]
-    grunt.registerTask 'build', [
-        'clean'
-        'stylus'
-        'postcss:build'
-        'jade:build'
-        'copy'
+        'connect:livereload', 'watch'
     ]
     grunt.registerTask 'server', ['serve']
     grunt.registerTask 'default', ['serve']
