@@ -8,9 +8,10 @@ module.exports = (grunt) ->
         banner: """
 
         /**
-         * <%= pkg.name %>
-         * Version: <%= pkg.version %>
-         * Copyright 2015 - <%= grunt.template.today("yyyy") %> <%= pkg.author %>
+         * PROJECT: <%= pkg.name %> v<%= pkg.version %>
+         * AUTHOR: <%= pkg.author.name %>
+         * EMAIL: <%= pkg.author.email %>
+         * LICENSE: <%= pkg.license %>
          */
         
         """
@@ -37,7 +38,6 @@ module.exports = (grunt) ->
                     'src/vendor/pace.js'
                     'src/vendor/require.js'
                     'src/vendor/jquery.js'
-                    'src/vendor/moment.js'
                     'src/vendor/waves.js'
                     '.tmp/tmp/js/init.js'
                 ]
@@ -48,15 +48,16 @@ module.exports = (grunt) ->
                     except: ['require']
                 normalizeDirDefines: true
                 skipDirOptimize: false
-                preserveComments: 'some'
+                preserveComments: false
             js:
                 options:
                     banner: '<%= banner %>'
                 files:[{
                     expand: true
                     cwd: '.tmp/build/'
-                    src: ['js/**/*.js']
+                    src: ['js/*.js']
                     dest: 'build/'
+                    ext: '.min.js'
                 }]
         stylus:
             options:

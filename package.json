@@ -1,7 +1,11 @@
 {
   "name": "fancy",
   "version": "0.1.0",
-  "author": "Eric Wang",
+  "author": {
+    "name": "Eric Wang",
+    "email": "me@emptystack.net"
+  },
+  "license": "MIT",
   "description": "Just Fancy It",
   "repository": "https://github.com/wh1100717/fancy",
   "devDependencies": {
